@@ -1,3 +1,4 @@
+Fs = require 'fs'
 App = require 'app'
 BrowserWindow = require 'browser-window'
 SlackConnection = require './slack_connection'
@@ -20,4 +21,9 @@ App.on 'ready', ->
     # when you should delete the corresponding element.
     mainWindow = null
 
-  client = new SlackConnection(process.env.SLACK_TOKEN)
+  tokenFile = "#{process.env.HOME}/.peonies.json"
+
+  Fs.readFile tokenFile, (err, data) ->
+    throw err if err
+    tokens = JSON.parse(data)
+    new SlackConnection(token) for token in tokens
