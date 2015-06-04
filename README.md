@@ -19,7 +19,6 @@ Grab an authorization token from the [Slack Docs](https://api.slack.com/web). Yo
 ### Running
 
     % npm i
-    % export SLACK_TOKEN=whateveryougot
     % electron .
 
 ### Testing
