@@ -1,5 +1,6 @@
 App = require 'app'
 BrowserWindow = require 'browser-window'
+SlackConnection = require './slack_connection'
 
 mainWindow = null
 
@@ -19,3 +20,4 @@ App.on 'ready', ->
     # when you should delete the corresponding element.
     mainWindow = null
 
+  client = new SlackConnection(process.env.SLACK_TOKEN)
