@@ -2,10 +2,8 @@ SlackClient = require 'slack-client'
 
 class SlackConnection
   constructor: (@token) ->
-    console.log "Yaya"
     @client = new SlackClient @token, true, true
 
-    console.log "Yaya"
     @client.on 'error', @.error
     @client.on 'loggedIn', @.loggedIn
     @client.on 'open', @.open
@@ -13,7 +11,6 @@ class SlackConnection
     @client.on 'message', @.message
     @client.on 'userChange', @.userChange
 
-    console.log "Yaya"
     @client.login()
 
   error: (error) =>
@@ -38,7 +35,7 @@ class SlackConnection
   message: (msg) =>
     # Ignore our own messages
     return if msg.user == @self.id
-    console.log msg
+    console.log msg.text
 
   userChange: (user) =>
 
