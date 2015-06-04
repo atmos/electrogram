@@ -30,8 +30,6 @@ class SlackConnection
     console.log 'Slack client closed, waiting for reconnect'
 
   message: (msg) =>
-    # Ignore our own messages
-    return if msg.user == @self.id
     if msg.type == 'message'
       console.log "#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}"
     else
