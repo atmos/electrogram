@@ -22,9 +22,6 @@ class SlackConnection
   loggedIn: (self, team) =>
     console.log "Logged in as #{self.name} of #{team.name}, but not yet connected"
 
-    # store a copy of our own user data
-    @self = self
-
   open: =>
     console.log 'Slack client now connected'
 
@@ -35,7 +32,10 @@ class SlackConnection
   message: (msg) =>
     # Ignore our own messages
     return if msg.user == @self.id
-    console.log msg.text
+    if msg.type == 'message'
+      console.log "#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}"
+    else
+      console.log "Unknown message type, #{msg.type}"
 
   userChange: (user) =>
 
