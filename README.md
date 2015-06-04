@@ -6,7 +6,15 @@ This is a test app by @atmos
 
 ### Chat Tokens
 
-Grab an authorization token from the [Slack Docs](https://api.slack.com/web).
+Grab an authorization token from the [Slack Docs](https://api.slack.com/web). You can provide an array of tokens for each slack subdomain that you're a part of. Add them to `~/.peonies.json`.
+
+```javascript
+[
+  "xoxp-aaaaaaaaa-bbbbbbbbb-cccccccccc-dddddd",
+  "xoxp-eeeeeeeee-fffffffff-gggggggggg-hhhhhh",
+  "xoxp-iiiiiiiii-jjjjjjjjj-kkkkkkkkkk-llllll"
+]
+```
 
 ### Running
 
