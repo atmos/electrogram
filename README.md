@@ -1,6 +1,6 @@
 # Peonies
 
-This is a test app by @atmos
+How hard can it be to write a [SlackHQ](https://slack.com/) client?
 
 ![](https://cloud.githubusercontent.com/assets/38/7949418/88e29856-0942-11e5-98b0-17d37dae54e3.jpg)
 
