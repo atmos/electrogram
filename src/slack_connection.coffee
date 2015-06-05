@@ -33,8 +33,7 @@ class SlackConnection extends EventEmitter
 
   message: (msg) =>
     if msg.type == 'message'
-      console.log "#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}"
-      console.log @document
+      @emit "message", msg
     else
       console.log "Unknown message type, #{msg.type}"
 

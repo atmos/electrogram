@@ -11,3 +11,5 @@ Fs.readFile tokenFile, (err, data) ->
     connection = new SlackConnection(token, document)
     connection.on "loggedIn", (user, team) ->
       $("#messages").append("<li>Joined #{team.name}'s Slack chat.</li>")
+    connection.on "message", (msg) ->
+      $("#messages").append("<li>#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}</li>")
