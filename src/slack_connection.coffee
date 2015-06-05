@@ -1,6 +1,7 @@
-SlackClient = require 'slack-client'
+SlackClient  = require 'slack-client'
+EventEmitter = require 'events'
 
-class SlackConnection
+class SlackConnection extends EventEmitter
   constructor: (@token, @document) ->
     @client = new SlackClient @token, true, true
 
@@ -21,6 +22,7 @@ class SlackConnection
 
   loggedIn: (self, team) =>
     console.log "Logged in as #{self.name} of #{team.name}, but not yet connected"
+    @emit "loggedIn", self, team
 
   clientOpen: =>
     console.log 'Slack client now connected'
