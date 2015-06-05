@@ -9,7 +9,11 @@ Fs.readFile tokenFile, (err, data) ->
   tokens = JSON.parse(data)
   for token in tokens
     connection = new SlackConnection(token, document)
-    connection.on "loggedIn", (user, team) ->
-      $("#messages").append("<li>Joined #{team.name}'s Slack chat.</li>")
-    connection.on "message", (msg) ->
-      $("#messages").append("<li>#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}</li>")
+    connection.on "login", (conn, user, team) ->
+      $("#messages").append("<li>#{user.name} joined #{team.name}'s Slack chat.</li>")
+    connection.on "message", (conn, msg) ->
+      if msg.type == 'message'
+        item = "<li>#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}</li>"
+        $("#messages").append(item)
+      else
+        console.log "Unknown message type, #{msg.type}"

@@ -5,14 +5,20 @@ class SlackConnection extends EventEmitter
   constructor: (@token, @document) ->
     @client = new SlackClient @token, true, true
 
+    @client.on 'open', @.open
+    @client.on 'close', @.close
     @client.on 'error', @.error
-    @client.on 'loggedIn', @.loggedIn
-    @client.on 'open', @.clientOpen
-    @client.on 'close', @.clientClose
     @client.on 'message', @.message
+    @client.on 'loggedIn', @.login
     @client.on 'userChange', @.userChange
 
     @client.login()
+
+  open: =>
+    @emit "open", @
+
+  close: =>
+    @emit "close", @
 
   error: (error) =>
     console.log "Received error #{JSON.stringify error}"
@@ -20,22 +26,11 @@ class SlackConnection extends EventEmitter
     console.log "Exiting in 1 second"
     setTimeout process.exit.bind(process, 1), 1000
 
-  loggedIn: (self, team) =>
-    console.log "Logged in as #{self.name} of #{team.name}, but not yet connected"
-    @emit "loggedIn", self, team
-
-  clientOpen: =>
-    console.log 'Slack client now connected'
-
-  clientClose: =>
-    # Don't actually do anything since we may reconnect in the future
-    console.log 'Slack client closed, waiting for reconnect'
+  login: (self, team) =>
+    @emit "login", @, self, team
 
   message: (msg) =>
-    if msg.type == 'message'
-      @emit "message", msg
-    else
-      console.log "Unknown message type, #{msg.type}"
+    @emit "message", @, msg
 
   userChange: (user) =>
 

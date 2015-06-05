@@ -27,6 +27,7 @@
     "electron-prebuilt": "~0.27.2",
     "jquery": "^2.1.4",
     "react": "^0.13.3",
+    "react-tools": "^0.13.3",
     "reactify": "^1.1.1",
     "slack-client": "1.3.1"
   },
