@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello User</title>
+    <title>Welcome to SlackHQ</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       require("coffee-script/register")
       require("../src/run")
     </script>
   </head>
   <body>
-    <h1>Hello <script>document.write(process.env['USER'])</script>!</h1>
+    <h1>Hey <script>document.write(process.env['USER'])</script>!</h1>
       <p>We are using io.js <script>document.write(process.version)</script>,
-    Electron <script>document.write(process.versions['electron'])</script>,
-    and React.</p>
+      Electron <script>document.write(process.versions['electron'])</script>,
+      and React.</p>
 
     <ul id="messages"></ul>
   </body>

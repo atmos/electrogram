@@ -32,6 +32,7 @@ class SlackConnection
   message: (msg) =>
     if msg.type == 'message'
       console.log "#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}"
+      console.log @document
     else
       console.log "Unknown message type, #{msg.type}"
 
