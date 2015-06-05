@@ -1,4 +1,5 @@
 Fs = require 'fs'
+React = require 'react'
 SlackConnection = require './slack_connection'
 
 tokenFile = "#{process.env.HOME}/.peonies.json"
