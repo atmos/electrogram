@@ -16,21 +16,6 @@
       Electron <script>document.write(process.versions['electron'])</script>,
       and React.</p>
 
-    <ul id="messages"></ul>
-    <script type="text/jsx">
-      var MessageBox = React.createClass({
-        render: function() {
-          return (
-            <li className="messageBox">
-              Hello, world! I am a MessageBox.
-            </li>
-          );
-        }
-      });
-      React.render(
-        <MessageBox />,
-        document.getElementById("messages")
-      );
-    </script>
+    <div id="chat-app"></div>
   </body>
 </html>
