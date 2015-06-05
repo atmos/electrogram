@@ -1,12 +1,12 @@
 SlackClient = require 'slack-client'
 
 class SlackConnection
-  constructor: (@token) ->
+  constructor: (@token, @document) ->
     @client = new SlackClient @token, true, true
 
     @client.on 'error', @.error
     @client.on 'loggedIn', @.loggedIn
-    @client.on 'open', @.open
+    @client.on 'open', @.clientOpen
     @client.on 'close', @.clientClose
     @client.on 'message', @.message
     @client.on 'userChange', @.userChange
@@ -22,7 +22,7 @@ class SlackConnection
   loggedIn: (self, team) =>
     console.log "Logged in as #{self.name} of #{team.name}, but not yet connected"
 
-  open: =>
+  clientOpen: =>
     console.log 'Slack client now connected'
 
   clientClose: =>

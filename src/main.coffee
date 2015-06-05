@@ -1,7 +1,5 @@
-Fs = require 'fs'
 App = require 'app'
 BrowserWindow = require 'browser-window'
-SlackConnection = require './slack_connection'
 
 mainWindow = null
 
@@ -20,10 +18,3 @@ App.on 'ready', ->
     # in an array if your app supports multi windows, this is the time
     # when you should delete the corresponding element.
     mainWindow = null
-
-  tokenFile = "#{process.env.HOME}/.peonies.json"
-
-  Fs.readFile tokenFile, (err, data) ->
-    throw err if err
-    tokens = JSON.parse(data)
-    new SlackConnection(token) for token in tokens

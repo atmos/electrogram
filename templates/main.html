@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>Hello User</title>
+    <script>
+      require("coffee-script/register")
+      require("../src/run")
+    </script>
   </head>
   <body>
     <h1>Hello <script>document.write(process.env['USER'])</script>!</h1>
-    We are using io.js <script>document.write(process.version)</script>,
+      <p>We are using io.js <script>document.write(process.version)</script>,
     Electron <script>document.write(process.versions['electron'])</script>,
-    and React.
+    and React.</p>
+
+    <ul id="messages"></ul>
   </body>
 </html>
