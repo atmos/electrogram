@@ -33,14 +33,14 @@ Fs.readFile tokenFile, (err, data) ->
             channel = new React.createElement Channel, {key: channelId, name: info.name, info: info, team: team, messages: []}
             team.props.channels.push(channel)
 
-      message = React.createElement Message, {key: msg.id, msg: msg, channel: channel}
-
-      channel.props.messages.push(message)
+      if channel?
+        message = React.createElement Message, {key: msg.id, msg: msg, channel: channel}
+        channel.props.messages.push(message)
 
       if msg.type == 'message'
-        item = "<li>#{msg._client.team.name} / #{msg.channel} / #{msg.user} - #{msg.text}</li>"
+        item = "#{msg._client.team.name} / #{message.props.channel.props.name} / #{msg.user} - #{msg.text}"
         console.log item
-      else
-        console.log "Unknown message type, #{msg.type}"
+
+      console.log msg
 
       React.render chatApp, document.getElementById("chat-app")
