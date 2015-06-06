@@ -1,7 +1,7 @@
 Team = React.createClass
   render: ->
     <div className="team">
-      {@props.team.name}'s Slack chat.
+      <span className="team-title">{@props.team.name}</span>
       <ul className="teamChannels">
         {@props.channels}
       </ul>
