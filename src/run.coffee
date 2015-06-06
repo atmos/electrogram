@@ -29,7 +29,6 @@ Fs.readFile tokenFile, (err, data) ->
       unless channel?
         for channelId, info of team.props.connection.client.channels
           if channelId == msg.channel
-            console.log info.name
             channel = new React.createElement Channel, {key: channelId, name: info.name, info: info, team: team, messages: []}
             team.props.channels.push(channel)
 
