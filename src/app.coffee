@@ -1,13 +1,13 @@
 require("coffee-react/register")
 
 Fs = require 'fs'
+App = require './react/app'
 Team = require './react/team'
-ChatApp = require './react/chat_app'
 Message = require './react/message'
 Channel = require './react/channel'
 SlackConnection = require './slack_connection'
 
-chatApp = React.createElement ChatApp, {key: "global", connections: [ ]}
+chatApp = React.createElement App, {key: "global", connections: [ ]}
 
 tokenFile = "#{process.env.HOME}/.peonies.json"
 Fs.readFile tokenFile, (err, data) ->

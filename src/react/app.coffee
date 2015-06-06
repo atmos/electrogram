@@ -1,7 +1,7 @@
-ChatApp = React.createClass
+App = React.createClass
   render: ->
     <div className="chat">
       <ul id="teams-list">{@props.connections}</ul>
     </div>
 
-module.exports = ChatApp
+module.exports = App
