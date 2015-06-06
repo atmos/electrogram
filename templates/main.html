@@ -7,11 +7,11 @@
     <script>
       window.$ = require('jquery')
       require("coffee-script/register")
-      require("../src/app")
+      require("../src/main")
     </script>
   </head>
   <body>
-    <h1>Hey <script>document.write(process.env['USER'])</script>!</h1>
+    <h2>Hey <script>document.write(process.env['USER'])</script>!</h2>
     <div id="chat-app"></div>
   </body>
 </html>

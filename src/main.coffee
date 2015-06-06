@@ -1,20 +1,46 @@
-App = require 'app'
-BrowserWindow = require 'browser-window'
+require("coffee-react/register")
 
-mainWindow = null
+Fs = require 'fs'
+App = require './react/app'
+Team = require './react/team'
+Message = require './react/message'
+Channel = require './react/channel'
+SlackConnection = require './slack_connection'
 
-App.on 'window-all-closed', () ->
-  app.quit() unless process.platform == 'darwin'
+chatApp = React.createElement App, {key: "global", connections: [ ]}
 
-App.on 'ready', ->
-  mainWindow = new BrowserWindow(width: 800, height: 600)
+tokenFile = "#{process.env.HOME}/.peonies.json"
+Fs.readFile tokenFile, (err, data) ->
+  throw err if err
+  tokens = JSON.parse(data)
+  for token in tokens
+    connection = new SlackConnection(token, document)
+    connection.on "login", (conn, user, team) ->
+      team = new React.createElement Team, {key: team.id, user: team, team: team, connection: conn, channels: []}
 
-  mainWindow.loadUrl "file://#{__dirname}/../templates/main.html"
-  mainWindow.openDevTools()
+      chatApp.props.connections.push(team)
+      React.render chatApp, document.getElementById("chat-app")
+    connection.on "message", (conn, msg) ->
+      teamId = msg._client.team.id
+      team = (team for team in chatApp.props.connections when team.key is teamId)[0]
 
-  # Emitted when the window is closed.
-  mainWindow.on 'closed', () ->
-    # Dereference the window object, usually you would store windows
-    # in an array if your app supports multi windows, this is the time
-    # when you should delete the corresponding element.
-    mainWindow = null
+      channel = (channel for channel in team.props.channels when channel.key == msg.channel)[0]
+
+      unless channel?
+        for channelId, info of team.props.connection.client.channels
+          if channelId == msg.channel
+            channel = new React.createElement Channel, {key: channelId, name: info.name, info: info, team: team, messages: []}
+            team.props.channels.push(channel)
+
+      if channel?
+        user = team.props.connection.client.users[msg.user]
+        message = React.createElement Message, {key: msg.ts, msg: msg, user: user, channel: channel}
+        channel.props.messages.push(message)
+
+      if msg.type == 'message'
+        if msg.subtype == 'bot_message'
+          console.log msg.subtype
+        item = "#{msg._client.team.name} / #{channel.props.name} / #{user.name} - #{msg.text}"
+        console.log item
+
+      React.render chatApp, document.getElementById("chat-app")
