@@ -34,13 +34,16 @@ Fs.readFile tokenFile, (err, data) ->
 
       if channel?
         user = team.props.connection.client.users[msg.user]
-        message = React.createElement Message, {key: msg.ts, msg: msg, user: user, channel: channel}
-        channel.props.messages.push(message)
+        if user?
+          message = React.createElement Message, {key: msg.ts, msg: msg, user: user, channel: channel}
+          channel.props.messages.push(message)
+
+          console.log "#{msg._client.team.name} / #{channel.props.name} / #{user.name} - #{msg.text}"
+        else
+          console.log "probably a bot"
 
       if msg.type == 'message'
-        if msg.subtype == 'bot_message'
-          console.log msg.subtype
-        item = "#{msg._client.team.name} / #{channel.props.name} / #{user.name} - #{msg.text}"
-        console.log item
+        if msg.sub_type == 'bot_message'
+          console.log msg.sub_type
 
       React.render chatApp, document.getElementById("chat-app")
