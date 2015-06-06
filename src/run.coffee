@@ -34,13 +34,13 @@ Fs.readFile tokenFile, (err, data) ->
             team.props.channels.push(channel)
 
       if channel?
-        message = React.createElement Message, {key: msg.id, msg: msg, channel: channel}
+        message = React.createElement Message, {key: msg.ts, msg: msg, channel: channel}
         channel.props.messages.push(message)
 
       if msg.type == 'message'
+        if msg.subtype == 'bot_message'
+          console.log msg.subtype
         item = "#{msg._client.team.name} / #{message.props.channel.props.name} / #{msg.user} - #{msg.text}"
         console.log item
-
-      console.log msg
 
       React.render chatApp, document.getElementById("chat-app")
