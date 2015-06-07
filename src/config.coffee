@@ -5,6 +5,8 @@ class Config
     try
       data = Fs.readFileSync @filename, encoding: 'utf8'
       @data = JSON.parse(data)
+      @rooms = @data.rooms
+      @tokens = @data.tokens
     catch error
       console.log "Error parsing config file: #{error}"
       @data = { }
