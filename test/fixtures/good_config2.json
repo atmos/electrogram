@@ -1,5 +1,8 @@
 {
-  "rooms": ["atmos#general"],
+  "channels": [
+    { "name" :"atmos#general" },
+    { "name" :"atmos#hubot-test" }
+  ],
 
   "tokens": [
     "xoxp-aaaaaaaaa-bbbbbbbbb-cccccccccc-dddddd",
