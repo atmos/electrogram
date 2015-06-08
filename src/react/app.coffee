@@ -17,8 +17,8 @@ App = React.createClass
       messages: []
     }
 
-  handleChangeChannel: (channel) ->
-    [teamName, channelName] = channel.split "#"
+  handleChangeChannel: (selectedChannel) ->
+    [teamName, channelName] = selectedChannel.split "#"
 
     if @props.connections?
       team = (team for team in @props.connections when team.props.team.name is teamName)[0]
@@ -29,7 +29,7 @@ App = React.createClass
           unless channel?
             channel = new React.createElement Channel, {key: channelId, name: info.name, info: info, team: team, messages: []}
             team.props.channels.push(channel)
-          this.setState({ activeChannel: channel, messages: channel.props.messages })
+          this.setState({ activeChannel: selectedChannel, messages: channel.props.messages })
 
   render: ->
     <div className="chat">
