@@ -1,12 +1,12 @@
 require("coffee-react/register")
 
-Fs = require 'fs'
-App = require './react/app'
-Team = require './react/team'
-Config = require './config'
-Message = require './react/message'
-Channel = require './react/channel'
-SlackConnection = require './slack_connection'
+Fs = require "fs"
+App = require "./react/app"
+Team = require "./react/team"
+Config = require "./config"
+Message = require "./react/message"
+Channel = require "./react/channel"
+SlackConnection = require "./slack_connection"
 
 chatApp = React.createElement App, {key: "global", connections: [ ]}
 
@@ -19,6 +19,8 @@ for token in config.tokens
     chatApp.props.connections.push(team)
     React.render chatApp, document.getElementById("chat-app")
   connection.on "message", (conn, msg) ->
+    console.log "Message Received: #{msg.ts} - #{msg.type}:#{msg.subtype} - #{msg.text}"
+
     teamId = msg._client.team.id
     team = (team for team in chatApp.props.connections when team.key is teamId)[0]
 
@@ -38,10 +40,15 @@ for token in config.tokens
 
         console.log "#{msg._client.team.name} / #{channel.props.name} / #{user.name} - #{msg.text}"
       else
-        console.log "probably a bot"
+        console.log "probably a bot - #{msg.subtype}"
 
-    if msg.type == 'message'
-      if msg.sub_type == 'bot_message'
-        console.log msg.sub_type
+      # Handle message updates - image/youtube updates
+      if msg.subtype == "message_changed"
+        message = (message for message in channel.props.messages when message.key.split(".")[0] == msg.ts.split(".")[0])[0]
+        if message?
+          console.log "Message changed: #{msg.ts}"
+          message.props.msg = msg
+        else
+          console.log "Unable to find message"
 
     React.render chatApp, document.getElementById("chat-app")
