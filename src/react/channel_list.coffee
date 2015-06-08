@@ -9,7 +9,7 @@ ChannelList = React.createClass
       { @props.channels.map (channel) ->
         klass = ""
         klass += "active" if component.props.active == channel.name
-        <li key={ channel.name } onClick={ component.handleChange.bind(component, channel.name ) } className={ klass }>{ channel.name }</li>
+        <li key={ channel.name } onClick={ component.handleChange.bind(component, channel.name ) } className={ klass }>{ channel.alias || channel.name }</li>
       }
     </ul>
 

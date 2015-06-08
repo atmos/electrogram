@@ -1,7 +1,7 @@
 {
   "channels": [
-    { "name" :"atmos#general" },
-    { "name" :"atmos#hubot-test" }
+    { "name": "atmos#general", "alias": "a - general" },
+    { "name": "atmos#hubot-test" }
   ],
 
   "tokens": [

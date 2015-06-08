@@ -11,7 +11,7 @@ Grab an authorization token from the [Slack Docs](https://api.slack.com/web). Yo
 ```javascript
 {
   "channels": [
-    { "name" :"atmos#general" },
+    { "name": "atmos#general", "alias": "peeps" },
     { "name" :"atmos#hubot-test" }
   ],
   "tokens": [
