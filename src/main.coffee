@@ -47,7 +47,6 @@ for token in config.tokens
         message = (message for message in channel.props.messages when message.key.split(".")[0] == msg.ts.split(".")[0])[0]
         if message?
           console.log "Message changed: #{msg.ts}"
-          message.props.msg = msg
         else
           console.log "Unable to find message"
 

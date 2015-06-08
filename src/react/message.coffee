@@ -6,7 +6,7 @@ Message = React.createClass
           <img src={ @props.user.profile.image_192 } />
         </span>
         <h4 className="author">{ @props.user.name }</h4>
-        <img src={ @props.msg.text.replace(/^</, '').replace(/>$/, '') } />
+        <img className="chat-image" src={ @props.msg.text.replace(/^</, '').replace(/>$/, '') } />
       </div>
     else
       <div className="message">
