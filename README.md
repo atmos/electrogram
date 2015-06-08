@@ -10,8 +10,10 @@ Grab an authorization token from the [Slack Docs](https://api.slack.com/web). Yo
 
 ```javascript
 {
-  "rooms": ["atmos#general"],
-
+  "channels": [
+    { "name": "atmos#general", "alias": "peeps" },
+    { "name" :"atmos#hubot-test" }
+  ],
   "tokens": [
     "xoxp-aaaaaaaaa-bbbbbbbbb-cccccccccc-dddddd",
     "xoxp-eeeeeeeee-fffffffff-gggggggggg-hhhhhh",
