@@ -16,7 +16,6 @@ for token in config.tokens
   connection = new SlackConnection(token, document)
   connection.on "login", (conn, user, team) ->
     team = new React.createElement Team, {key: team.id, user: team, team: team, connection: conn, channels: []}
-
     chatApp.props.connections.push(team)
     React.render chatApp, document.getElementById("chat-app")
   connection.on "message", (conn, msg) ->
