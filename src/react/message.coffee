@@ -1,10 +1,11 @@
 Message = React.createClass
   render: ->
-    <li className="messageBox">
-      <div className="userAvatar">
-        <img src={@props.user.profile.image_192} alt={@props.user.name} width=64 height=64 />
-      </div>
-      {@props.user.name} - {@props.msg.text}
-    </li>
+    <div className="message">
+      <span className="avatar">
+        <img src={ @props.user.profile.image_192 } />
+      </span>
+      <h4 className="author">{ @props.user.name }</h4>
+      <div className="content text">{ @props.msg.text }</div>
+    </div>
 
 module.exports = Message
