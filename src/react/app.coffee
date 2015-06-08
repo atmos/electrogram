@@ -1,18 +1,19 @@
-Channel     = require './channel'
+Config      = require "../config"
+Channel     = require "./channel"
 ChannelList = require "./channel_list"
 MessageList = require "./message_list"
 
 App = React.createClass
   getInitialState: ->
+    tokenFile = "#{process.env.HOME}/.peonies.json"
+    config = new Config(tokenFile)
+
+    unless config.isValid()
+      console.log "WARNING: Your config file #{tokenFile} is invalid"
+
     return {
-      channels: [
-        { name: "Zero Fucks LTD#general" }
-        { name: "Zero Fucks LTD#atmos-hubot" }
-        { name: "lstoll#general2" }
-      ]
-
-      activeChannel: "Zero Fucks LTD#general"
-
+      channels: config.channels
+      activeChannel: config.channels[0].name
       messages: []
     }
 
