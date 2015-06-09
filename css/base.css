@@ -9,6 +9,27 @@ body {
   display: none;
 }
 
+#input-bar {
+  position: absolute;
+  bottom: 0;
+  padding:10px;
+  width: 100%;
+  background-color: white;
+}
+
+.chat {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#input-bar input {
+  width: 98%;
+}
+.text-input-area {
+  width: 100%;
+}
+
 .channels {
   display: flex;
   margin: 0;

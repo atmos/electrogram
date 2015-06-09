@@ -1,4 +1,7 @@
 .messages {
+  overflow-y: scroll;
+  height: 500px;
+  border-bottom: 1px solid red;
 }
 
 .message .avatar {
@@ -26,17 +29,4 @@
 .message h4 {
   margin: 0;
   color: #000;
-}
-
-#input-bar {
-  position:relative;
-  padding:10px;
-  border:1px solid #000;
-  background-position:left bottom;
-}
-#input-bar input {
-  width: 100%;
-}
-.text-input-area {
-  width: 100%;
 }

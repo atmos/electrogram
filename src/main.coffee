@@ -36,7 +36,7 @@ for token in config.tokens
     if channel?
       user = team.props.connection.client.users[msg.user]
       if user?
-        message = React.createElement Message, {key: msg.ts, msg: msg, user: user, channel: channel, emojis: chatApp.props.emojis }
+        message = React.createElement Message, {key: msg.ts, msg: msg, user: user, channel: channel }
         channel.props.messages.push(message)
 
         console.log "#{msg._client.team.name} / #{channel.props.name} / #{user.name} - #{msg.text}"
@@ -50,7 +50,11 @@ for token in config.tokens
           console.log "Message changed: #{msg.ts}"
         else
           console.log "Unable to find message"
-
-    inputBar = React.createElement Input, {key: "input-bar-1", app: chatApp}
-    React.render inputBar, document.getElementById("input-bar")
     React.render chatApp, document.getElementById("chat-app")
+
+setTimeout ( ->
+  inputBar = React.createElement Input, {key: "input-bar-1", app: chatApp}
+  React.render inputBar, document.getElementById("input-bar")
+
+  React.render chatApp, document.getElementById("chat-app")
+), 500
