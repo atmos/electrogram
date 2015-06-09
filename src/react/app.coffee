@@ -5,16 +5,6 @@ ChannelList = require "./channel_list"
 MessageList = require "./message_list"
 
 App = React.createClass
-  updateDimensions: ->
-    console.log "WINDOWS: width: #{$(window).width()}, height: #{$(window).height()}"
-    this.setState({width: $(window).width(), height: $(window).height()})
-  componentWillMount: ->
-    this.updateDimensions()
-  componentDidMount: ->
-    window.addEventListener("resize", this.updateDimensions)
-  componentWillUnmount: ->
-    window.removeEventListener("resize", this.updateDimensions)
-
   getInitialState: ->
     tokenFile = "#{process.env.HOME}/.peonies.json"
     config = new Config(tokenFile)
