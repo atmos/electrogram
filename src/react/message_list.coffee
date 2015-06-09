@@ -3,8 +3,8 @@ MessageList = React.createClass
     return { height: "400px" }
 
   updateDimensions: ->
-    console.log "MessageList Resize: height: #{$(window).height()-80}"
-    this.setState({height: ($(window).height()-80)})
+    console.log "MessageList Resize: height: #{$(window).height()-70}"
+    this.setState({height: ($(window).height()-70)})
   componentWillMount: ->
     this.updateDimensions()
   componentDidMount: ->
@@ -14,7 +14,7 @@ MessageList = React.createClass
 
   componentWillUpdate: () ->
     if node = @getDOMNode()
-      @shouldScrollBottom = (node.scrollTop + node.offsetHeight) > node.scrollHeight-80
+      @shouldScrollBottom = (node.scrollTop + node.offsetHeight) > node.scrollHeight-70
   componentDidUpdate: () ->
     if @shouldScrollBottom
       if node = @getDOMNode()
