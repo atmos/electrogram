@@ -14,11 +14,13 @@ MessageList = React.createClass
 
   componentWillUpdate: () ->
     if node = @getDOMNode()
-      @shouldScrollBottom = (node.scrollTop + node.offsetHeight) == node.scrollHeight
+      @shouldScrollBottom = (node.scrollTop + node.offsetHeight) > node.scrollHeight-80
   componentDidUpdate: () ->
     if @shouldScrollBottom
       if node = @getDOMNode()
-        node.scrollTop = node.scrollHeight
+        setTimeout ( ->
+          node.scrollTop = node.scrollHeight
+        ), 750
 
   render: ->
     divStyle =
