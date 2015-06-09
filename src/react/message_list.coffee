@@ -4,7 +4,7 @@ MessageList = React.createClass
 
   updateDimensions: ->
     console.log "MessageList Resize: height: #{$(window).height()-70}"
-    this.setState({height: ($(window).height()-70)})
+    this.setState({width: ($(window).width()-20), height: ($(window).height()-70)})
   componentWillMount: ->
     this.updateDimensions()
   componentDidMount: ->
@@ -24,6 +24,7 @@ MessageList = React.createClass
 
   render: ->
     divStyle =
+      width: "#{@state.width}px"
       height: "#{@state.height}px"
 
     return null if @props.messages == undefined || @props.messages.length == 0
