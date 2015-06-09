@@ -1,3 +1,4 @@
+Input       = require "./input"
 Config      = require "../config"
 Channel     = require "./channel"
 ChannelList = require "./channel_list"
@@ -33,8 +34,7 @@ App = React.createClass
 
   render: ->
     <div className="chat">
-      <div className="teams-sidebar">
-      </div>
+      <div className="teams-sidebar"></div>
       <div className="team">
         <ChannelList channels={ @state.channels } active={ @state.activeChannel } onChange={ this.handleChangeChannel } />
         <MessageList messages={ @state.messages } />
