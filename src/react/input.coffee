@@ -13,7 +13,7 @@ Input = React.createClass
     <div className="text-input-area">
       <form className="input-box-form" onSubmit={@handleSubmit}>
         <label className="input-box-label"></label>
-        <input type="text" value={@state.value} onChange={@handleChange} onSubmit={@handleSubmit} />
+        <input type="text" value={@state.value} onChange={@handleChange} />
       </form>
     </div>
 
