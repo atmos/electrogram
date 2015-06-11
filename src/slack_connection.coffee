@@ -3,7 +3,7 @@ EventEmitter = require 'events'
 
 class SlackConnection extends EventEmitter
   constructor: (@token, @document) ->
-    @client = new SlackClient @token, true, true
+    @client = new SlackClient @token, true, false
 
     @client.on 'open', @.open
     @client.on 'close', @.close
