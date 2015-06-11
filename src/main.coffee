@@ -20,7 +20,6 @@ for token in config.tokens
     chatApp.props.connections.push(team)
 
     for preferredChannel in config.channels
-      console.log preferredChannel
       [teamName, channelName] = preferredChannel.name.split("#")
       if teamName is team.props.team.name
         for channelId, channel of conn.client.channels
@@ -47,6 +46,7 @@ for token in config.tokens
       user = team.props.connection.client.users[msg.user]
       if user?
         message = React.createElement Message, {key: msg.ts, msg: msg, user: user, channel: channel }
+        channel.props.messages.shift() if channel.props.messages.length > 50
         channel.props.messages.push(message)
 
         console.log "#{msg._client.team.name} / #{channel.props.name} / #{user.name} - #{msg.text}"
