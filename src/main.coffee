@@ -28,8 +28,6 @@ for token in config.tokens
             channel.fetchHistory()
 
     React.render chatApp, document.getElementById("chat-app")
-  connection.on "backfill", (conn, team) ->
-    console.log "BACK FILLING #{team.name}"
 
   connection.on "message", (conn, msg) ->
     console.log "Message Received: #{msg.ts} - #{msg.type}:#{msg.subtype} - #{msg.text}"
