@@ -1,6 +1,6 @@
 # Peonies
 
-How hard can it be to write a [SlackHQ](https://slack.com/) client?
+Electrogram is a [SlackHQ](https://slack.com/) desktop client written in [Electron](http://electron.atom.io/) and [ReactJS](https://facebook.github.io/react/). The goal is to present a UI that's better suited for 1-2 channels across a few teams.
 
 ![](https://cloud.githubusercontent.com/assets/38/7949418/88e29856-0942-11e5-98b0-17d37dae54e3.jpg)
 
