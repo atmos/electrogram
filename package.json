@@ -32,7 +32,7 @@
     "react": "^0.13.3",
     "react-tools": "^0.13.3",
     "reactify": "^1.1.1",
-    "slack-client": "https://github.com/lstoll/node-slack-client#peonies_tweaks"
+    "slack-client": "~1.4.1"
   },
   "devDependencies": {
     "chai": "~1.0.3",

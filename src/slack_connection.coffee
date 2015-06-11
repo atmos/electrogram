@@ -28,10 +28,6 @@ class SlackConnection extends EventEmitter
 
   login: (self, team) =>
     @emit "login", @, self, team
-    console.log @client.channels[0]
-    for k of @client.channels
-      chan = @client.channels[k]
-      chan.fetchHistory()
 
   message: (msg) =>
     @emit "message", @, msg
