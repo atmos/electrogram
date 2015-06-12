@@ -4,7 +4,7 @@ Electrogram is a [SlackHQ](https://slack.com/) desktop client written in [Electr
 
 ![](https://cloud.githubusercontent.com/assets/38/8126814/ab1af59c-10a6-11e5-8de0-74e68b688b3d.gif)
  
-### Chat Tokens
+## Chat Tokens
 
 Grab an authorization token from the [Slack Docs](https://api.slack.com/web). You can provide an array of tokens for each slack subdomain that you're a part of. Add them to `~/.peonies.json`.
 
@@ -22,12 +22,12 @@ Grab an authorization token from the [Slack Docs](https://api.slack.com/web). Yo
 }
 ```
 
-### Running
+## Running
 
     % npm i
     % electron .
 
-### Testing
+## Testing
 
 You can test by running the following.
     
