@@ -1,9 +1,9 @@
 # Electrogram
 
-Electrogram is a [SlackHQ](https://slack.com/) desktop client written in [Electron](http://electron.atom.io/) and [ReactJS](https://facebook.github.io/react/). The goal is to present a UI that's better suited for 1-2 channels across a few teams.
+Electrogram is a [SlackHQ](https://slack.com/) desktop client written in [Electron](http://electron.atom.io/) and [ReactJS](https://facebook.github.io/react/).
 
 ![](https://cloud.githubusercontent.com/assets/38/8126814/ab1af59c-10a6-11e5-8de0-74e68b688b3d.gif)
-
+ 
 ### Chat Tokens
 
 Grab an authorization token from the [Slack Docs](https://api.slack.com/web). You can provide an array of tokens for each slack subdomain that you're a part of. Add them to `~/.peonies.json`.
