@@ -6,7 +6,7 @@ MessageList = require "./message_list"
 
 App = React.createClass
   getInitialState: ->
-    tokenFile = "#{process.env.HOME}/.peonies.json"
+    tokenFile = "#{process.env.HOME}/.electrogram.json"
     config = new Config(tokenFile)
 
     unless config.isValid()

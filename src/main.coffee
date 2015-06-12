@@ -11,7 +11,7 @@ SlackConnection = require "./slack_connection"
 
 chatApp = React.createElement App, {key: "global", connections: [ ] }
 
-tokenFile = "#{process.env.HOME}/.peonies.json"
+tokenFile = "#{process.env.HOME}/.electrogram.json"
 config = new Config tokenFile
 for token in config.tokens
   connection = new SlackConnection(token, document)
