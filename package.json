@@ -1,5 +1,5 @@
 {
-  "name": "peonies",
+  "name": "electrogram",
   "main": "index.js",
   "version": "0.0.2",
   "private": true,
@@ -16,12 +16,12 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/atmos/peonies/raw/master/LICENSE"
+      "url": "https://github.com/atmos/electrogram/raw/master/LICENSE"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/atmos/peonies.git"
+    "url": "https://github.com/atmos/electrogram.git"
   },
   "dependencies": {
     "electron-prebuilt": "~0.27.2",
