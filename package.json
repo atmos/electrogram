@@ -32,7 +32,7 @@
     "react": "^0.13.3",
     "react-tools": "^0.13.3",
     "reactify": "^1.1.1",
-    "slack-client-atmos": "~1.4.2"
+    "slack-client-atmos": "~1.4.4"
   },
   "devDependencies": {
     "chai": "~1.0.3",

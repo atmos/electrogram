@@ -1,4 +1,4 @@
-SlackClient  = require 'slack-client'
+SlackClient  = require 'slack-client-atmos'
 EventEmitter = require 'events'
 
 class SlackConnection extends EventEmitter
