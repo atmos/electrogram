@@ -24,7 +24,7 @@ App = React.createClass
     if @props.connections?
       team = (team for team in @props.connections when team.props.team.name is teamName)[0]
       for channelId, info of team.props.connection.client.channels
-        if channelName == info .name
+        if channelName == info.name
           channel = (channel for channel in team.props.channels when channel.key == channelId)[0]
 
           unless channel?
