@@ -14,7 +14,7 @@ chatApp = React.createElement App, {key: "global", connections: [ ] }
 tokenFile = "#{process.env.HOME}/.peonies.json"
 config = new Config tokenFile
 for token in config.tokens
-  connection = new SlackConnection(token, config.channels, document)
+  connection = new SlackConnection(token, document)
   connection.on "login", (conn, user, team) ->
     team = new React.createElement Team, {key: team.id, user: team, team: team, connection: conn, channels: []}
     chatApp.props.connections.push(team)
@@ -68,3 +68,8 @@ setTimeout ( ->
 
   React.render chatApp, document.getElementById("chat-app")
 ), 500
+
+setTimeout ( ->
+  connection.client.autoMark = true
+  React.render chatApp, document.getElementById("chat-app")
+), 5000
