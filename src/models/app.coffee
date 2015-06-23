@@ -53,18 +53,15 @@ class App
             channel = new Channel(team, channelId)
             team.addChannel(channel)
 
+      channel = team.channels[msg.channel]
       if channel?
         console.log "Message team:channel is: #{team.name()}:#{channel.name()}"
         user = team.connection.client.users[msg.user]
 
         if user?
-          console.log user
-          message = React.createElement MessageElement, {key: msg.ts, msg: msg, user: user, channel: channel }
-      #    channel.props.messages.shift() if channel.props.messages.length > 50
-      #    channel.props.messages.push(message)
-
-      #    console.log "#{msg._client.team.name} / #{channel.props.name} / #{user.name} - #{msg.text}"
-      #  else
-      #    console.log "probably a bot - #{msg.subtype}"
+          channel.addMessage(msg)
+          console.log "Message: #{team.name()}/#{channel.name()} / #{user.name} - #{msg.text}"
+        else
+          console.log "probably a bot - #{msg.subtype}"
 
 module.exports = App
