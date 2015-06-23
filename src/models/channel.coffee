@@ -26,6 +26,5 @@ class Channel
     message = new Message(@, msg)
     @messages.shift() if @messages.length > 50
     @messages.push(message)
-    message
 
 module.exports = Channel
