@@ -20,16 +20,19 @@ AppElement = React.createClass
   handleChangeChannel: (selectedChannel) ->
     [teamName, channelName] = selectedChannel.split "#"
 
-    if @props.connections?
-      team = (team for team in @props.connections when team.props.team.name is teamName)[0]
-      for channelId, info of team.props.connection.client.channels
-        if channelName == info.name
-          channel = (channel for channel in team.props.channels when channel.key == channelId)[0]
+    if @props.parent?
+      team = @props.parent.teamForName(teamName)
+      if team?
+        debugger
+        for channelId, info of team.apiChannels()
+          if channelName == info.name
+            channel = team.channelForName(channelName)
 
-          unless channel?
-            channel = new React.createElement Channel, {key: channelId, name: info.name, info: info, team: team, messages: []}
-            team.props.channels.push(channel)
-          this.setState({ activeChannel: selectedChannel, messages: channel.props.messages })
+            unless channel?
+              channel = new Channel(team, channelId)
+              team.addChannel(channel)
+
+            this.setState({ activeChannel: selectedChannel, messages: channel.messages })
 
   render: ->
     <div className="chat">
