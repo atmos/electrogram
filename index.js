@@ -1,2 +1,2 @@
 require("coffee-script/register")
-require("./src/app")
+require("./src/electron_app")
