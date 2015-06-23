@@ -1,5 +1,3 @@
-Fs = require "fs"
-
 MessageElement = require "../react/message"
 
 class Message

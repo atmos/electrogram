@@ -1,5 +1,3 @@
-Fs = require "fs"
-
 Message = require "./message"
 ChannelElement = require "../react/channel"
 

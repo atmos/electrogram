@@ -1,5 +1,3 @@
-Fs = require "fs"
-
 TeamElement = require "../react/team"
 
 class Team

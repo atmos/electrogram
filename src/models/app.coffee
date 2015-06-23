@@ -1,5 +1,3 @@
-Fs = require "fs"
-
 Team            = require "./team"
 Config          = require "../config"
 Channel         = require "./channel"
