@@ -1,3 +1,4 @@
+Channel     = require "./channel"
 TeamElement = require "../react/team"
 
 class Team
@@ -28,7 +29,7 @@ class Team
       channel = (channel for channelId, channel of @apiChannels() when channel.name is name)
       if channel?
         channel = new Channel(@, id)
-        @channels[channel.id] = channel
+        @addChannel(channel)
       else
         null
 

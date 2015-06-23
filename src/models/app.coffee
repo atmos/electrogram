@@ -43,14 +43,7 @@ class App
 
       team = @teamForName(msg._client.team.name)
 
-      channel = team.channels[msg.channel]
-      unless channel?
-        for channelId, channel of team.apiChannels()
-          if channelId is msg.channel
-            channel = new Channel(team, channelId)
-            team.addChannel(channel)
-
-      channel = team.channels[msg.channel]
+      channel = team.channelForNameOrId(msg.channel, msg.channel)
       if channel?
         console.log "Message team:channel is: #{team.name()}:#{channel.name()}"
         user = team.connection.client.users[msg.user]
