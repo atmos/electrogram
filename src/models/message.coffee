@@ -7,7 +7,7 @@ class Message
     options =
       key: @msg.ts
       msg: @msg
-      user: @msg.user
+      user: @channel.team.connection.client.users[@msg.user]
       channel: @channel
       parent: @channel
 
