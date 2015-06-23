@@ -2,7 +2,9 @@ Fs = require "fs"
 
 Team            = require "./team"
 Config          = require "../config"
+Channel         = require "./channel"
 AppElement      = require "../react/app"
+MessageElement  = require "../react/message"
 SlackConnection = require "../slack_connection"
 
 class App
@@ -31,7 +33,7 @@ class App
           for channelId, channel of conn.client.channels
             if channelName is channel.name
               console.log channelName
-              # channel.fetchHistory()
+              channel.fetchHistory()
 
       setTimeout ( =>
         connection.client.autoMark = true
@@ -42,21 +44,22 @@ class App
     connection.on "message", (conn, msg) =>
       console.log "Message Received: #{msg.ts} - #{msg.type}:#{msg.subtype} - #{msg.text}"
 
-      #teamId = msg._client.team.id
-      #team = (team for team in chatApp.props.connections when team.key is teamId)[0]
+      team = @teamForName(msg._client.team.name)
 
-      #channel = (channel for channel in team.props.channels when channel.key == msg.channel)[0]
+      channel = team.channels[msg.channel]
+      unless channel?
+        for channelId, channel of team.apiChannels()
+          if channelId is msg.channel
+            channel = new Channel(team, channelId)
+            team.addChannel(channel)
 
-      #unless channel?
-      #  for channelId, info of team.props.connection.client.channels
-      #    if channelId == msg.channel
-      #      channel = new React.createElement ChannelElement, {key: channelId, name: info.name, info: info, team: team, messages: []}
-      #      team.props.channels.push(channel)
+      if channel?
+        console.log "Message team:channel is: #{team.name()}:#{channel.name()}"
+        user = team.connection.client.users[msg.user]
 
-      #if channel?
-      #  user = team.props.connection.client.users[msg.user]
-      #  if user?
-      #    message = React.createElement MessageElement, {key: msg.ts, msg: msg, user: user, channel: channel }
+        if user?
+          console.log user
+          message = React.createElement MessageElement, {key: msg.ts, msg: msg, user: user, channel: channel }
       #    channel.props.messages.shift() if channel.props.messages.length > 50
       #    channel.props.messages.push(message)
 

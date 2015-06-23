@@ -13,4 +13,11 @@ class Channel
     @reactElement = new React.createElement ChannelElement, options
 
   name: () ->
-    @team.name
+    @team.name()
+
+  userFor: (name) ->
+    @team.connection.client.users[name]
+
+  addMessage: () ->
+
+module.exports = Channel

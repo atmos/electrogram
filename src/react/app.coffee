@@ -23,7 +23,6 @@ AppElement = React.createClass
     if @props.parent?
       team = @props.parent.teamForName(teamName)
       if team?
-        debugger
         for channelId, info of team.apiChannels()
           if channelName == info.name
             channel = team.channelForName(channelName)
