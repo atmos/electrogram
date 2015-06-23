@@ -10,7 +10,6 @@ class SlackConnection extends EventEmitter
     @client.on 'error', @.error
     @client.on 'message', @.message
     @client.on 'loggedIn', @.login
-    @client.on 'userChange', @.userChange
 
     @client.login()
 
@@ -20,7 +19,7 @@ class SlackConnection extends EventEmitter
   close: =>
     @emit "close", @
 
-  error: (error) =>
+  error: (error) ->
     console.log "Received error #{JSON.stringify error}"
     console.log error.stack
     console.log "Exiting in 1 second"
@@ -31,8 +30,6 @@ class SlackConnection extends EventEmitter
 
   message: (msg) =>
     @emit "message", @, msg
-
-  userChange: (user) =>
 
 # Export class for unit tests
 module.exports = SlackConnection
