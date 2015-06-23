@@ -1,10 +1,9 @@
-Input       = require "./input"
-Config      = require "../config"
-Channel     = require "./channel"
-ChannelList = require "./channel_list"
-MessageList = require "./message_list"
+Config       = require "../config"
+Channel      = require "./channel"
+ChannelList  = require "./channel_list"
+MessageList  = require "./message_list"
 
-App = React.createClass
+AppElement = React.createClass
   getInitialState: ->
     tokenFile = "#{process.env.HOME}/.electrogram.json"
     config = new Config(tokenFile)
@@ -41,4 +40,4 @@ App = React.createClass
       </div>
     </div>
 
-module.exports = App
+module.exports = AppElement

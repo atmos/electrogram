@@ -1,15 +1,15 @@
 require "coffee-react/register"
 
 Fs = require "fs"
-App = require "./react/app"
 Team = require "./react/team"
-Input = require "./react/input"
 Config = require "./config"
 Message = require "./react/message"
 Channel = require "./react/channel"
+AppElement = require "./react/app_element"
+InputElement = require "./react/input"
 SlackConnection = require "./slack_connection"
 
-chatApp = React.createElement App, {key: "global", connections: [ ] }
+chatApp = React.createElement AppElement, {key: "global", connections: [ ] }
 
 tokenFile = "#{process.env.HOME}/.electrogram.json"
 config = new Config tokenFile
@@ -63,7 +63,7 @@ for token in config.tokens
     React.render chatApp, document.getElementById("chat-app")
 
 setTimeout ( ->
-  inputBar = React.createElement Input, {key: "input-bar-1", app: chatApp}
+  inputBar = React.createElement InputElement, {key: "input-bar-1", app: chatApp}
   React.render inputBar, document.getElementById("input-bar")
 
   React.render chatApp, document.getElementById("chat-app")

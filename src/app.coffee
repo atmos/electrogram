@@ -8,9 +8,10 @@ App.on 'window-all-closed', () ->
 
 App.on 'ready', ->
   mainWindow = new BrowserWindow(width: 800, height: 600)
-
   mainWindow.loadUrl "file://#{__dirname}/../templates/main.html"
-  mainWindow.openDevTools()
+
+  if process.env.DEBUG is 'true'
+    mainWindow.openDevTools()
 
   # Emitted when the window is closed.
   mainWindow.on 'closed', () ->
