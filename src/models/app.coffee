@@ -32,7 +32,6 @@ class App
         if teamName is team.team.name
           for channelId, channel of conn.client.channels
             if channelName is channel.name
-              console.log channelName
               channel.fetchHistory()
 
       setTimeout ( =>
@@ -62,6 +61,6 @@ class App
           channel.addMessage(msg)
           console.log "Message: #{team.name()}/#{channel.name()} / #{user.name} - #{msg.text}"
         else
-          console.log "probably a bot - #{msg.subtype}"
+          console.log "Message: #{team.name()}/#{channel.name()} / probably a bot - #{msg.text}"
 
 module.exports = App

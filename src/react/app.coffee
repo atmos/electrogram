@@ -25,13 +25,13 @@ AppElement = React.createClass
       if team?
         for channelId, info of team.apiChannels()
           if channelName == info.name
-            channel = team.channelForName(channelName)
+            channel = team.channelForNameOrId(channelName, channelId)
 
             unless channel?
               channel = new Channel(team, channelId)
               team.addChannel(channel)
 
-            this.setState({ activeChannel: selectedChannel, messages: channel.messages })
+            this.setState({ activeChannel: selectedChannel, messages: channel.reactMessages() })
 
   render: ->
     <div className="chat">

@@ -23,8 +23,15 @@ class Team
   addChannel: (channel) ->
     @channels[channel.id] = channel
 
-  channelForName: (name) ->
-    channel = (channel for channelId, channel of @apiChannels() when channel.name is name)
-    if channel? then channel[0] else null
+  channelForNameOrId: (name, id) ->
+    if @channels[id]?
+      @channels[id]
+    else
+      channel = (channel for channelId, channel of @apiChannels() when channel.name is name)
+      if channel?
+        channel = new Channel(@, id)
+        @channels[channel.id] = channel
+      else
+        null
 
 module.exports = Team

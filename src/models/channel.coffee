@@ -19,6 +19,9 @@ class Channel
   userFor: (name) ->
     @team.connection.client.users[name]
 
+  reactMessages: () ->
+    (message.reactElement for message in @messages)
+
   addMessage: (msg) ->
     message = new Message(@, msg)
     @messages.shift() if @messages.length > 50
