@@ -28,6 +28,7 @@
     "jquery": "^2.1.4",
     "react-emoji": "~0.3.2",
     "react-autolink": "~0.2.0",
+    "coffeelint": "1.10.1",
     "coffee-react": "~3.2.0",
     "react": "^0.13.3",
     "react-tools": "^0.13.3",
