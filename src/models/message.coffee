@@ -8,7 +8,6 @@ class Message
       key: @msg.ts
       msg: @msg
       user: @channel.userFor(@msg.user)
-      channel: @channel
       parent: @channel
 
     @reactElement = new React.createElement MessageElement, options

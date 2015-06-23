@@ -7,8 +7,7 @@ class Channel
   constructor: (@team, @id) ->
     options =
       key: @id
-      team: @team
-      parent: @app
+      parent: @team
 
     @messages = [ ]
     @reactElement = new React.createElement ChannelElement, options
