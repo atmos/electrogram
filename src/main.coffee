@@ -1,12 +1,8 @@
 require "coffee-react/register"
 
-Fs = require "fs"
-
-App = require "./models/app"
-
-InputElement    = require "./react/input"
-MessageElement  = require "./react/message"
-ChannelElement  = require "./react/channel"
+Fs           = require "fs"
+App          = require "./models/app"
+InputElement = require "./react/input"
 
 app = new App(document)
 app.setup()
