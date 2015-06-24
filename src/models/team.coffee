@@ -19,17 +19,14 @@ class Team
   apiChannels: () ->
     @connection.client.channels
 
-  addChannel: (channel) ->
-    @channels[channel.id] = channel
-
   channelForNameOrId: (name, id) ->
     if @channels[id]?
       @channels[id]
     else
       channel = (channel for channelId, channel of @apiChannels() when channel.name is name)
       if channel?
-        channel = new Channel(@, id)
-        @addChannel(channel)
+        @channels[id] = new Channel(@, id)
+        @channels[id]
       else
         null
 

@@ -27,10 +27,6 @@ AppElement = React.createClass
           if channelName == info.name
             channel = team.channelForNameOrId(channelName, channelId)
 
-            unless channel?
-              channel = new Channel(team, channelId)
-              team.addChannel(channel)
-
             this.setState({ activeChannel: selectedChannel, messages: channel.reactMessages() })
 
   render: ->
