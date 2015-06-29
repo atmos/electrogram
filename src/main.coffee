@@ -13,4 +13,3 @@ setTimeout ( ->
 
   React.render app.reactElement, document.getElementById("chat-app")
 ), 500
-
