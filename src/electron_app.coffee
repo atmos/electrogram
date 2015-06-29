@@ -1,5 +1,6 @@
 App = require 'app'
 BrowserWindow = require 'browser-window'
+Shell = require 'shell'
 
 mainWindow = null
 
@@ -19,3 +20,9 @@ App.on 'ready', ->
     # in an array if your app supports multi windows, this is the time
     # when you should delete the corresponding element.
     mainWindow = null
+
+
+  mainWindow.webContents.on 'new-window', (e, url) ->
+    if url.match /^https?\:\/\//
+      Shell.openExternal(url)
+    e.preventDefault()
