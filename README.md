@@ -6,7 +6,7 @@ Electrogram is a [SlackHQ](https://slack.com/) desktop client written in [Electr
 
 ## Chat Tokens
 
-Grab an authorization token from the [Slack Docs](https://api.slack.com/web). You can provide an array of tokens for each slack subdomain that you're a part of. Add them to `~/.electrogram.json`.
+Grab an authorization token from the [Slack Docs](https://api.slack.com/web). You can provide an array of tokens for each slack team name that you're a part of. Add them to `~/.electrogram.json`.
 
 ```javascript
 {
