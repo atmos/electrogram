@@ -2,7 +2,7 @@
 
 Electrogram is a [SlackHQ](https://slack.com/) desktop client written in [Electron](http://electron.atom.io/) and [ReactJS](https://facebook.github.io/react/).
 
-![](https://cloud.githubusercontent.com/assets/38/8126814/ab1af59c-10a6-11e5-8de0-74e68b688b3d.gif)
+![](https://cloud.githubusercontent.com/assets/38/8422328/d0c94866-1e8e-11e5-91c3-8f54b7c6f98d.gif)
 
 ## Chat Tokens
 
