@@ -1,4 +1,5 @@
-Message = require "./message"
+Message        = require "./message"
+Attachment     = require "./attachment"
 ChannelElement = require "../react/channel"
 
 class Channel
@@ -19,9 +20,21 @@ class Channel
   reactMessages: () ->
     (message.reactElement for message in @messages)
 
-  addMessage: (msg) ->
-    message = new Message(@, msg)
+  appendMessageOrAttachment: (obj) ->
     @messages.shift() if @messages.length > 250
-    @messages.push(message)
+    @messages.push(obj)
+    @reactElement.props.messages = @reactMessages()
+
+  addMessage: (msg) ->
+    if @userFor(msg.user)
+      message = new Message(@, msg)
+      @appendMessageOrAttachment(message)
+
+    if msg.attachments?
+      console.log "#{msg.attachments.length} attachments fffffound!"
+      for msgObject, index in msg.attachments
+        attachment = new Attachment(msg, msgObject, index)
+        @appendMessageOrAttachment(attachment)
+
 
 module.exports = Channel

@@ -3,7 +3,6 @@ MessageList = React.createClass
     return { height: "400px" }
 
   updateDimensions: ->
-    console.log "MessageList Resize: height: #{$(window).height()-70}"
     this.setState({width: ($(window).width()-20), height: ($(window).height()-70)})
   componentWillMount: ->
     this.updateDimensions()

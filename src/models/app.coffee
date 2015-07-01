@@ -39,13 +39,10 @@ class App
 
 
     connection.on "message", (conn, msg) =>
-      console.log "Message Received: #{msg.ts} - #{msg.type}:#{msg.subtype} - #{msg.text}"
-
       team = @teamForName(msg._client.team.name)
 
       channel = team.channelForNameOrId(msg.channel, msg.channel)
       if channel?
-        console.log "Message team:channel is: #{team.name()}:#{channel.name()}"
         channel.addMessage(msg)
 
 module.exports = App
