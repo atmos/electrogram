@@ -1,5 +1,4 @@
-TextMessage  = require "../react/messages/text_message"
-ImageMessage = require "../react/messages/image_message"
+MessageElement = require "../react/message"
 
 class Message
   constructor: (@channel, @msg) ->
@@ -10,18 +9,9 @@ class Message
       msg: @msg
       parent: @
 
-    if @messageType() is "image"
-      @reactElement = new React.createElement ImageMessage, options
-    else
-      @reactElement = new React.createElement TextMessage, options
+    @reactElement = new React.createElement MessageElement, options
 
   body: () ->
     @msg.text
-
-  messageType: () ->
-    if @msg.text.match(/^<(.*\.(:?jpg|jpeg|gif|png))>$/)
-      "image"
-    else
-      "text"
 
 module.exports = Message

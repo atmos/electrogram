@@ -5,7 +5,6 @@ Message = React.createClass
     return { width: "800px" }
 
   updateDimensions: ->
-    console.log "Message Resize: max-width: #{($(window).width()-50)}"
     this.setState({width: ($(window).width() - 50)})
 
   mixins: [ ReactEmoji ]
@@ -16,7 +15,7 @@ Message = React.createClass
         <img src={ @userAvatarImage() } />
       </span>
       <h4 className="author">{ @userName() }</h4>
-      <div className="content text">Unknown messageType</div>
+      <div className="content text" dangerouslySetInnerHTML={{__html: @body()}}/>
     </div>
 
   userName: ->
@@ -24,5 +23,19 @@ Message = React.createClass
 
   userAvatarImage: ->
     @props.parent.user.profile.image_192
+
+  body: () ->
+    @emojify(@slackify(@props.parent.body()))
+
+  slackify: (text) ->
+    loop
+      match = text.match(/\<((?!a href|\/a).+?)\>/)
+      break unless match
+
+      [target, readableName] = match[1].split(/\|/)
+      readableName ?= target
+
+      text = text.replace match[0], "<a href=\"#{target}\" class=\"external\" target=\"_blank\">#{readableName}</a>"
+    text
 
 module.exports = Message
