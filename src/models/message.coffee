@@ -1,5 +1,4 @@
-TextMessage  = require "../react/messages/text_message"
-ImageMessage = require "../react/messages/image_message"
+MessageElement = require "../react/message"
 
 class Message
   constructor: (@channel, @msg) ->
@@ -10,7 +9,7 @@ class Message
       msg: @msg
       parent: @
 
-    @reactElement = new React.createElement TextMessage, options
+    @reactElement = new React.createElement MessageElement, options
 
   body: () ->
     @msg.text
