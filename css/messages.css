@@ -12,9 +12,24 @@
   border-radius: 5px;
   overflow: hidden;
 }
+
 .message .avatar img {
   width: 24px;
   height: 24px;
+}
+
+.message .mini-avatar {
+  float: left;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  overflow: hidden;
+  padding-bottom: 2px
+}
+
+.message .mini-avatar img {
+  width: 23px;
+  height: 23px;
 }
 
 .message {
@@ -26,7 +41,41 @@
   border-bottom: 1px solid #eee;
 }
 
-.message h4 {
+.message h2, h3, h4 {
   margin: 0;
   color: #000;
+}
+
+.message a:link {
+  color: #33a2b8;
+}
+
+.message h4.author {
+  margin: 0;
+  color: #000;
+}
+
+.message.attachment {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 40px;
+  padding-left: 5px;
+  border-left: 3px solid #eee;
+}
+
+.message.attachment h3 {
+  font-weight: normal;
+  margin: 0;
+  color: #999;
+}
+
+.message.attachment h4 {
+  margin: 0;
+  font-weight: normal;
+  color: #999;
+}
+
+.attachment div.content.text {
+  padding: 1px;
+  margin: 0;
 }
