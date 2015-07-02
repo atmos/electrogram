@@ -2,8 +2,6 @@ AttachmentElement = require "../attachment"
 
 class TwitterAttachment extends AttachmentElement
   render: ->
-    console.log(@props.attachment)
-
     <div className="message has-attachment">
       <div className="attachment">
         <a href={@props.attachment.author_link} className="external" target="_blank">
