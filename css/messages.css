@@ -57,7 +57,7 @@
 }
 
 .attachment h2 {
-  font-size: 17px;
+  font-size: 16px;
   margin: 2px 0 5px;
 }
 
@@ -69,8 +69,9 @@
 
 .attachment h4 {
   color: #999;
+  font-size: 12px;
   font-weight: normal;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .attachment p {
@@ -84,10 +85,14 @@
   margin-left: 6px;
 }
 
+.attachment .twitter-name {
+  color: #555;
+}
+
 .attachment .text {
-  margin: 4px 0;
+  margin: 6px 0;
 }
 
 .attachment .chat-image {
-  max-width: 300px;
+  max-width: 350px;
 }
