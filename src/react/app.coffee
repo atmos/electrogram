@@ -27,7 +27,7 @@ AppElement = React.createClass
           if channelName == info.name
             channel = team.channelForNameOrId(channelName, channelId)
 
-            this.setState({ activeChannel: selectedChannel, messages: channel.reactMessages() })
+            @setState({ activeChannel: selectedChannel, messages: channel.reactMessages() })
 
   render: ->
     <div className="chat">
