@@ -36,7 +36,7 @@
   padding: 5px 10px;
   padding-left: 44px;
   font-size: 14px;
-  font-weight: 300;
+  /*font-weight: 300;*/
   color: #333;
   border-bottom: 1px solid #eee;
 }
@@ -48,6 +48,7 @@
 
 .message a:link {
   color: #33a2b8;
+  text-decoration: none;
 }
 
 .message h4.author {
@@ -55,27 +56,44 @@
   color: #000;
 }
 
-.message.attachment {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 40px;
-  padding-left: 5px;
-  border-left: 3px solid #eee;
+/* So dirty. */
+.message + .has-attachment {
+  border-top: 1px solid #fff;
+  margin-top: -1px;
 }
 
-.message.attachment h3 {
-  font-weight: normal;
-  margin: 0;
+.attachment {
+  margin-bottom: 9px;
+  padding-left: 10px;
+  border-left: 4px solid #eee;
+}
+
+.attachment h2 {
+  font-size: 18px;
+}
+
+.attachment h3 {
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.attachment h4 {
   color: #999;
-}
-
-.message.attachment h4 {
-  margin: 0;
   font-weight: normal;
-  color: #999;
 }
 
-.attachment div.content.text {
+.attachment p {
+  margin: 0 0 6px;
+  line-height: 1.45;
+}
+
+.attachment .content.text {
   padding: 1px;
   margin: 0;
+}
+
+.attachment .chat-image {
+  margin-top: 3px;
+  max-width: 200px;
 }
