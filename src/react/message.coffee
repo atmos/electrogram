@@ -11,9 +11,7 @@ Message = React.createClass
 
   render: ->
     <div className="message">
-      <span className="avatar">
-        <img src={ @userAvatarImage() } />
-      </span>
+      <img src={ @userAvatarImage() } className="avatar" />
       <h4 className="author">{ @userName() }</h4>
       <div className="content text" dangerouslySetInnerHTML={{__html: @body()}}/>
     </div>

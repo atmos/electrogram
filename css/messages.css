@@ -5,17 +5,12 @@
 }
 
 .message .avatar {
+  border-radius: 3px;
   float: left;
-  margin-left: -34px;
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.message .avatar img {
-  width: 24px;
-  height: 24px;
+  height: auto;
+  margin-left: -35px;
+  margin-top: 3px;
+  width: 28px;
 }
 
 .message .mini-avatar {
@@ -69,7 +64,8 @@
 }
 
 .attachment h2 {
-  font-size: 18px;
+  font-size: 17px;
+  margin: 2px 0;
 }
 
 .attachment h3 {
