@@ -14,24 +14,17 @@
 }
 
 .message .mini-avatar {
-  float: left;
-  width: 24px;
-  height: 24px;
   border-radius: 2px;
-  overflow: hidden;
-  padding-bottom: 2px
-}
-
-.message .mini-avatar img {
-  width: 23px;
-  height: 23px;
+  float: left;
+  height: auto;
+  margin: 2px 5px 0 0;
+  width: 16px;
 }
 
 .message {
   padding: 5px 10px;
   padding-left: 44px;
   font-size: 14px;
-  /*font-weight: 300;*/
   color: #333;
   border-bottom: 1px solid #eee;
 }
@@ -65,7 +58,7 @@
 
 .attachment h2 {
   font-size: 17px;
-  margin: 2px 0;
+  margin: 2px 0 5px;
 }
 
 .attachment h3 {
@@ -77,19 +70,24 @@
 .attachment h4 {
   color: #999;
   font-weight: normal;
+  margin-bottom: 4px;
 }
 
 .attachment p {
-  margin: 0 0 2px;
+  margin: 0 0 7px;
   line-height: 1.45;
 }
 
-.attachment .content.text {
-  padding: 1px;
-  margin: 0;
+.attachment .twitter-handle {
+  color: #999;
+  font-weight: 300;
+  margin-left: 6px;
+}
+
+.attachment .text {
+  margin: 4px 0;
 }
 
 .attachment .chat-image {
-  margin-top: 3px;
-  max-width: 250px;
+  max-width: 300px;
 }
