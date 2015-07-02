@@ -27,6 +27,10 @@ Grab an authorization token from the [Slack Docs](https://api.slack.com/web). Yo
     % npm i
     % electron .
 
+You can also it launch it with devtools enabled.
+
+    % DEBUG=true electron .
+
 ## Testing
 
 You can test by running the following.
