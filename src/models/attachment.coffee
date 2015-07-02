@@ -1,7 +1,8 @@
 Message = require "./message"
-AttachmentElement        = require "../react/attachment"
-TwitterAttachmentElement = require "../react/attachments/twitter"
-YouTubeAttachmentElement = require "../react/attachments/youtube"
+AttachmentElement           = require "../react/attachment"
+TwitterAttachmentElement    = require "../react/attachments/twitter"
+YouTubeAttachmentElement    = require "../react/attachments/youtube"
+SoundCloudAttachmentElement = require "../react/attachments/soundcloud"
 
 class Attachment
   constructor: (@msg, @attachment, index) ->
@@ -20,6 +21,8 @@ class Attachment
         new React.createElement TwitterAttachmentElement, options
       when "YouTube"
         new React.createElement YouTubeAttachmentElement, options
+      when "SoundCloud"
+        new React.createElement SoundCloudAttachmentElement, options
       else
         console.log @attachment
         console.log "Uncustomized attachment:> #{@attachment.service_name}"

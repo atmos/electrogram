@@ -12,9 +12,11 @@ Attachment = React.createClass
         <h3>{ @props.attachment.author_name }</h3>
         <h2><a href={@props.attachment.title_link} className="external" target="_blank">{@props.attachment.title}</a></h2>
         <p>{ @props.attachment.text }</p>
-        <a href={@props.attachment.title_link} className="external" target="_blank">
-          <img className="chat-image" src={ @props.attachment.image_url or @props.attachment.thumb_url } />
-        </a>
+        { (@props.attachment.image_url || @props.attachment.thumb_url) &&
+          <a href={@props.attachment.title_link} className="external" target="_blank">
+            <img className="chat-image" src={ @props.attachment.image_url or @props.attachment.thumb_url } />
+          </a>
+        }
       </div>
     </div>
 
