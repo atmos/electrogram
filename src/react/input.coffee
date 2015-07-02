@@ -3,7 +3,7 @@ Input = React.createClass
     return { value: "" }
 
   handleChange: (event) ->
-    this.setState({ value: event.target.value })
+    @setState({ value: event.target.value })
 
   handleSubmit: (event) ->
     event.preventDefault()

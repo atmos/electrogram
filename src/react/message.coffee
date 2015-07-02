@@ -5,7 +5,7 @@ Message = React.createClass
     return { width: "800px" }
 
   updateDimensions: ->
-    this.setState({width: ($(window).width() - 50)})
+    @setState({width: ($(window).width() - 50)})
 
   mixins: [ ReactEmoji ]
 

@@ -3,13 +3,13 @@ MessageList = React.createClass
     return { height: "400px" }
 
   updateDimensions: ->
-    this.setState({width: ($(window).width()-20), height: ($(window).height()-70)})
+    @setState({width: ($(window).width()-20), height: ($(window).height()-70)})
   componentWillMount: ->
-    this.updateDimensions()
+    @updateDimensions()
   componentDidMount: ->
-    window.addEventListener("resize", this.updateDimensions)
+    window.addEventListener("resize", @updateDimensions)
   componentWillUnmount: ->
-    window.removeEventListener("resize", this.updateDimensions)
+    window.removeEventListener("resize", @updateDimensions)
 
   componentWillUpdate: () ->
     if node = @getDOMNode()
