@@ -1,5 +1,4 @@
 Channel     = require "./channel"
-TeamElement = require "../react/team"
 
 class Team
   constructor: (@app, @connection, @user, @team) ->
@@ -11,7 +10,6 @@ class Team
       connection: @connection
 
     @channels = { }
-    @reactElement = new React.createElement TeamElement, options
 
   name: () ->
     @team.name
