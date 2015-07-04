@@ -1,6 +1,5 @@
 Team            = require "./team"
 Config          = require "../config"
-Channel         = require "./channel"
 AppElement      = require "../react/app"
 MessageElement  = require "../react/message"
 SlackConnection = require "../slack_connection"

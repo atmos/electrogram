@@ -1,5 +1,4 @@
 Config       = require "../config"
-Channel      = require "./channel"
 ChannelList  = require "./channel_list"
 MessageList  = require "./message_list"
 
