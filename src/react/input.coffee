@@ -27,11 +27,8 @@ Input = React.createClass
     channel._client.onMessage message
 
   render: ->
-    <div className="text-input-area">
-      <form className="input-box-form" onSubmit={@handleSubmit}>
-        <label className="input-box-label"></label>
-        <input type="text" value={@state.value} onChange={@handleChange} />
-      </form>
-    </div>
+    <form className="message-input-form" onSubmit={@handleSubmit}>
+      <input type="text" value={@state.value} onChange={@handleChange} placeholder="Write something…" className="message-input" />
+    </form>
 
 module.exports = Input
