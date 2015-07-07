@@ -1,3 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent elastic scrolling */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll-wrapper {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 16px;
