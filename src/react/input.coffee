@@ -25,6 +25,7 @@ Input = React.createClass
     console.log "YASSS: #{@state.value}"
     message = channel.send(@state.value)
     channel._client.onMessage message
+    @setState(value: "")
 
   render: ->
     <form className="message-input-form" onSubmit={@handleSubmit}>
