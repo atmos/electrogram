@@ -1,6 +1,7 @@
 Config       = require "../config"
 ChannelList  = require "./channel_list"
 MessageList  = require "./message_list"
+InputElement = require "./input"
 
 AppElement = React.createClass
   getInitialState: ->
@@ -34,6 +35,7 @@ AppElement = React.createClass
       <div className="team">
         <ChannelList channels={ @state.channels } active={ @state.activeChannel } onChange={ this.handleChangeChannel } />
         <MessageList messages={ @state.messages }, application={@} />
+        <InputElement application={@} />
       </div>
     </div>
 
