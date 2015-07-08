@@ -5,9 +5,6 @@ Input = React.createClass
   handleChange: (event) ->
     @setState({ value: event.target.value })
 
-  appConnections: () ->
-    @props.application.props.parent.connections
-
   channelForKey: (key) ->
     [teamName, channelName] = key.split "#"
 
