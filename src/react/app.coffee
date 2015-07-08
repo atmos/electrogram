@@ -12,9 +12,9 @@ AppElement = React.createClass
       console.log "WARNING: Your config file #{tokenFile} is invalid"
 
     return {
-      channels: config.channels
-      activeChannel: config.channels[0].name
       messages: []
+      channels: config.channels
+      activeChannel: null
     }
 
   handleChangeChannel: (selectedChannel) ->
@@ -28,6 +28,13 @@ AppElement = React.createClass
             channel = team.channelForNameOrId(channelName, channelId)
 
             @setState({ activeChannel: selectedChannel, messages: channel.reactMessages() })
+
+  componentDidMount: ->
+    setTimeout ( =>
+      unless @state.activeChannel?
+        channelName = @props.parent.config.channels[0].name
+        @handleChangeChannel(channelName)
+    ), 3000
 
   render: ->
     <div className="chat">
