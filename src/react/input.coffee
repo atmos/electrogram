@@ -21,7 +21,11 @@ Input = React.createClass
     channel = @channelForKey(@props.application.state.activeChannel)
     console.log "YASSS: #{@state.value}"
     message = channel.send(@state.value)
-    channel._client.onMessage message
+    setTimeout ( =>
+      console.log message.ts
+      console.log message.user
+      channel.addMessage(message)
+    ), 300
     @setState(value: "")
 
   render: ->
